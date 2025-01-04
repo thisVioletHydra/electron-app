@@ -1,0 +1,62 @@
+{
+  "display": "TypeScript compiler",
+  "compilerOptions": {
+    "incremental": true,
+    "composite": true,
+    "target": "ESNext",
+    "jsx": "preserve",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext",
+      "ESNext.AsyncIterable"
+    ],
+    "useDefineForClassFields": true,
+    "baseUrl": ".",
+    "rootDir": ".",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "paths": {
+      "~~/*": [
+        "src/*"
+      ],
+      "~~components/*": [
+        "src/components/*"
+      ],
+      "~~assets/*": [
+        "src/assets/*"
+      ]
+    },
+    "resolveJsonModule": true,
+    "types": [
+      "@types/node",
+      "vite/client"
+    ],
+    "allowJs": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "declaration": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*",
+    "types/**/*",
+    "**/*.ts",
+    "**/*.js",
+    "**/*.d.ts",
+    "**/*.json",
+    "libs/vite-postcss/dist/index.esm.js",
+    "**/*.vue"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "public"
+  ]
+}

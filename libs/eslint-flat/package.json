@@ -1,0 +1,46 @@
+{
+  "name": "@blitz/eslint-flat",
+  "type": "module",
+  "version": "1.5.12",
+  "description": "Collection rules for eslint",
+  "author": "reaxoft.ru",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js"
+    }
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "!dist/**/*.map",
+    "*.d.ts",
+    "dist",
+    "types"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "peerDependencies": {
+    "@antfu/eslint-config": ">=3.x",
+    "@typescript-eslint/parser": ">=8.x",
+    "eslint": ">=9.x",
+    "eslint-plugin-format": ">=0.1.2",
+    "eslint-plugin-perfectionist": ">=3.x",
+    "eslint-plugin-promise": ">=7.x",
+    "eslint-plugin-unicorn": ">=55.x",
+    "vue-eslint-parser": ">=9.x"
+  },
+  "scripts": {
+    "build": "tsup"
+  }
+}

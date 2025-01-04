@@ -1,0 +1,37 @@
+{
+  "name": "@blitz/vite-postcss",
+  "version": "2.1.18",
+  "author": "reaxoft.ru",
+  "description": "Collection rules for vite-postcss plugin",
+  "license": "MIT",
+  "keywords": [
+    "eslint-config"
+  ],
+  "files": [
+    "dist",
+    "!dist/**/*.map",
+    "types",
+    "*.d.ts"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": "bin/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsup"
+  }
+}

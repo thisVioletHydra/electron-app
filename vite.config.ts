@@ -23,6 +23,14 @@ export default defineConfig(async ({ mode }: UserConfig): Promise<UserConfig> =>
   console.clear();
 
   return {
+    base: './',
+    build: {
+      minify: false,
+      outDir: 'dist',
+      rollupOptions: {
+        external: ['electron'],
+      },
+    },
     css: {
       postcss: postcssBundler(),
     },

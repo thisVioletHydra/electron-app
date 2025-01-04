@@ -1,16 +1,31 @@
 import type { Options } from 'unplugin-auto-import/types';
 import type { PluginOption } from 'vite';
 import { cwd } from 'node:process';
-
 import vue from '@vitejs/plugin-vue';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { normalizePath } from 'vite';
 import { ViteAliases } from 'vite-aliases';
+import renderer from 'vite-plugin-electron-renderer';
+import electron from 'vite-plugin-electron/simple';
+import { cssm, removeCssModulesChunk } from 'vite-plugin-vue-css-modules';
 
 export function listPlugins(mode?: string) {
   return [
-
+    vue(),
+    electron({
+      main: {
+        entry: 'src/app/main.ts',
+      },
+      preload: {
+        input: 'src/app/preload.ts',
+      },
+    }),
+    renderer({
+      resolve: {
+        got: { type: 'esm' },
+      },
+    }),
     Components({
       dts: true, // enabled by default if `typescript` is installed
     }),
@@ -65,6 +80,8 @@ export function listPlugins(mode?: string) {
       include: [/\.[jt]sx?$/, /\.md$/, /\.vue$/, /\.vue\?vue/],
 
     } as Options),
-    vue(),
+
+    cssm(),
+    removeCssModulesChunk(),
   ] as PluginOption[];
 }

@@ -33,6 +33,7 @@
     "resolveJsonModule": true,
     "types": [
       "@types/node",
+      "electron",
       "vite/client"
     ],
     "allowJs": true,

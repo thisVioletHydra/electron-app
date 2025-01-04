@@ -1,5 +1,10 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import type { Component } from 'vue';
+import { createApp } from 'vue';
+import App from './App.vue';
+import './style.css';
 
-createApp(App).mount('#app')
+const app = createApp(App as Component);
+app.mount('#app');
+
+export default app;
+export { app };

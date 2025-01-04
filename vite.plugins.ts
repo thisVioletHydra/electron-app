@@ -21,7 +21,7 @@ export function listPlugins(mode?: string) {
       deep: true,
       depth: 1,
       dir: 'src',
-      dts: false,
+      dts: true,
       logPath: './logs/',
       prefix: '~~',
       root: normalizePath(cwd()),
@@ -33,6 +33,29 @@ export function listPlugins(mode?: string) {
     AutoImport({
       dirs: ['./src/hooks'],
       dts: './@types/auto-imports.d.ts',
+      imports: [
+        'vue',
+        'vue-router',
+        'pinia',
+        {
+          '@vueuse/core': [
+            'useMouse', // import { useMouse } from '@vueuse/core',
+            'useFetch',
+          ],
+          'axios': [['default', 'axios']],
+        },
+
+        {
+          from: 'axios',
+          imports: ['default', 'axios'],
+          type: true,
+        },
+        {
+          from: 'vue-router',
+          imports: ['RouteLocationRaw'],
+          type: true,
+        },
+      ],
       eslintrc: {
         enabled: true,
         filepath: './.eslintrc-auto-import.json',
@@ -40,7 +63,7 @@ export function listPlugins(mode?: string) {
       },
 
       include: [/\.[jt]sx?$/, /\.md$/, /\.vue$/, /\.vue\?vue/],
-      vueTemplate: true,
+
     } as Options),
     vue(),
   ] as PluginOption[];

@@ -17,14 +17,17 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "paths": {
-      "~~/*": [
-        "src/*"
+      "~~app/*": [
+        "src/app/*"
+      ],
+      "~~assets/*": [
+        "src/assets/*"
       ],
       "~~components/*": [
         "src/components/*"
       ],
-      "~~assets/*": [
-        "src/assets/*"
+      "~~/*": [
+        "src/*"
       ]
     },
     "resolveJsonModule": true,
@@ -45,6 +48,7 @@
     "skipLibCheck": true
   },
   "include": [
+    "@types/**/*",
     "src/**/*",
     "types/**/*",
     "**/*.ts",

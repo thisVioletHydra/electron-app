@@ -1,19 +1,25 @@
 {
   "appId": "com.electron.app",
-  "files": [
-    "dist-electron",
-    "dist",
-    "@types"
-  ],
-  "mac": {
-    "target": "dmg"
+  "productName": "electron-app",
+  "directories": {
+    "output": "dist-builder"
   },
-  "linux": {
-    "target": "AppImage",
-    "category": "Utility"
+  "files": [
+    "dist-electron/**/*",
+    "node_modules/**/*",
+    "package.json"
+  ],
+  "win": {
+    "icon": "src/assets/icon256.png",
+    "target": ["portable"],
+    "asar": true,
+    "asarUnpack": [
+      "**/*.node",
+      "dist-electron/preload.mjs",
+      "./index.html"
+    ]
 
   },
-  "win": {
-    "target": ["portable", "msi"]
-  }
+  "buildDependenciesFromSource": true,
+  "npmRebuild": false
 }

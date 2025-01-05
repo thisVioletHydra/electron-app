@@ -31,9 +31,10 @@ async function createWindow() {
     height,
     maxWidth: width,
     maxHeight: height,
-    icon: path.join(app.getAppPath(), 'src', 'assets', 'icon.png'),
+    icon: path.join('src', 'assets', 'icon.png'),
 
     webPreferences: {
+      webSecurity: false,
       nodeIntegration: false,
       contextIsolation: true,
       preload: path.resolve(app.getAppPath(), 'dist-electron', 'preload.mjs'),

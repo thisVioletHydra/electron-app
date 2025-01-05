@@ -16374,16 +16374,17 @@ async function createWindow() {
     maxHeight: height,
     icon: path.join("src", "assets", "icon.png"),
     webPreferences: {
+      webSecurity: false,
       nodeIntegration: false,
       contextIsolation: true,
-      preload: path.resolve("dist-electron", "preload.mjs"),
+      preload: path.resolve(app.getAppPath(), "dist-electron", "preload.mjs"),
       devTools: true
     }
   });
   if (typeof process$1.env.VITE_DEV_SERVER_URL === "string") {
     await win.loadURL(process$1.env.VITE_DEV_SERVER_URL);
   } else {
-    await win.loadFile(path.join("dist", "index.html"));
+    await win.loadFile(path.join(app.getAppPath(), "dist", "index.html"));
   }
   Menu.setApplicationMenu(null);
   win.webContents.on("before-input-event", (event, input) => {

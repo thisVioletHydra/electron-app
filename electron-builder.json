@@ -1,0 +1,19 @@
+{
+  "appId": "com.electron.app",
+  "files": [
+    "dist-electron",
+    "dist",
+    "@types"
+  ],
+  "mac": {
+    "target": "dmg"
+  },
+  "linux": {
+    "target": "AppImage",
+    "category": "Utility"
+
+  },
+  "win": {
+    "target": ["portable", "msi"]
+  }
+}

@@ -4,16 +4,20 @@
 
 import { IpcRendererEvent } from 'electron';
 
+type ApiInvoke<T extends string = string> = {
+  success: boolean
+  data: T
+};
 interface global {
   VITE_DEV_SERVER_URL: string
   electron: string
 }
 
 declare global {
-  var electron: {
-    send: (channel: string, data: any) => void
-    receive: (channel: string, func: (...args: any[]) => void) => void
-    invoke: (channel: string, data: any) => Promise<any>
+  var api: {
+    send: (channel: string, data: unknown) => void
+    invoke: <T = string>(channel: string) => Promise<ApiInvoke<T>>
+    receive: (channel: string, func: (...args: unknown[]) => void) => Electron.IpcRenderer
   };
 }
 export {};

@@ -87,7 +87,7 @@ tmp/
 trash/
 typings/
 upload/ 
-
+dist-builder/
 ## --------- Folder Extend ---------
 **/*/tmp
 

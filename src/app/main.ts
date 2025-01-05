@@ -31,12 +31,12 @@ async function createWindow() {
     height,
     maxWidth: width,
     maxHeight: height,
-    icon: path.join('src', 'assets', 'icon.png'),
+    icon: path.join(app.getAppPath(), 'src', 'assets', 'icon.png'),
 
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
-      preload: path.resolve('dist-electron', 'preload.mjs'),
+      preload: path.resolve(app.getAppPath(), 'dist-electron', 'preload.mjs'),
       devTools: true,
     },
   });
@@ -46,7 +46,7 @@ async function createWindow() {
     await win.loadURL(process.env.VITE_DEV_SERVER_URL);
   } else {
     // Load your file
-    await win.loadFile(path.join('dist', 'index.html'));
+    await win.loadFile(path.join(app.getAppPath(), 'dist', 'index.html'));
   }
 
   Menu.setApplicationMenu(null);
